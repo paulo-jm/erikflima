@@ -1,0 +1,13 @@
+<div class="navigation-item-content">
+  <div class="d-flex flex-row">
+    <i *ngIf="icon" class="{{icon}}" (click)="activateNavigationItem()"></i>
+    <a *ngIf="!external" [routerLink]="link" routerLinkActive="active" class="flex-grow-1 align-self-center title" (click)="activateNavigationItem()">{{title}}</a>
+    <a *ngIf="external" [attr.href]="link" target="_blanck" class="flex-grow-1 align-self-center title" (click)="activateNavigationItem()">{{title}}</a>
+    <a *ngIf="hasChildren()" (click)="toggleSubnavigation()">
+      <i class="addon right expand expand_more" [ngClass]="{'rotate':expanded}"></i>
+    </a>
+  </div>
+</div>
+<div *ngIf="hasChildren()" class="navigation-subnavigation" [ngClass]="{'expanded':expanded}">
+  <ng-content></ng-content>
+</div>

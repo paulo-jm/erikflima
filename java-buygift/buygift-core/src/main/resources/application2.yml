@@ -1,0 +1,31 @@
+keycloak:
+  enabled: true
+  realm: GuustoApp
+  auth-server-url: http://localhost:8081/auth
+  ssl-required: external
+  resource: guusto-buy-gift
+  verify-token-audience: true
+  bearer-only: false
+  confidential-port: 0
+  use-resource-role-mappings: false
+  principal-attribute: preferred_username
+  cors: true
+  credentials:
+     secret: 9bc5df20-4961-4bbc-bf9d-727b1d161dca
+  security-constraints:
+    - auth-roles:
+      - User
+      security-collections:
+      - name: unsecured
+        patterns:
+        - /users
+    - auth-roles: 
+      - Admin
+      security-collections:
+      - name: secured
+        patterns:
+        - /buygift/merchant/admin
+logging:
+  level:
+    org.apache.catalina: DEBUG
+    org.keycloak: DEBUG

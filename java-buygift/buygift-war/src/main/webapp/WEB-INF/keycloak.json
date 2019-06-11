@@ -1,0 +1,13 @@
+{
+  "realm": "GuustoApp",
+  "auth-server-url": "http://localhost:8081/auth",
+  "ssl-required": "external",
+  "resource": "guusto-buy-gift",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "9bc5df20-4961-4bbc-bf9d-727b1d161dca"
+  },
+  "use-resource-role-mappings": true,
+  "confidential-port": 0,
+  "policy-enforcer": {}
+}

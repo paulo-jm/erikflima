@@ -1,0 +1,32 @@
+<div >
+    <div class="row">
+        <div class="col-12">
+          <label>Denominations</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-12" [formGroup]="merchantDenominationForm">
+          <div class="row">
+            <div class="col">
+              <input type="number" class="form-control" placeholder="Denomination" formControlName="merchantDenomination">
+            </div>
+            <div class="col-auto">
+              <button class="btn btn-secondary" (click)="addMerchantDenomination()"><i class="fas fa-plus"></i></button>
+            </div>
+          </div>
+          <div class="row my-1">
+            <div class="col">
+
+              <div class="d-flex flex-wrap">
+                <div class="d-flex align-items-center my-1 mr-2 badge badge-pill badge-light"
+                  *ngFor="let merchantDenomination of merchantDenominationFormArray?.controls; let i = index;">
+                  <div class="ml-1">{{merchantDenomination.value}}</div>
+                  <div><button class="btn btn-light btn-sm ml-2" (click)="removeMerchantDenomination(i)"><i class="fas fa-trash"></i></button></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

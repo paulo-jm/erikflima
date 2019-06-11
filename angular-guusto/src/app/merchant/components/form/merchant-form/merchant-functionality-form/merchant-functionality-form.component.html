@@ -1,0 +1,37 @@
+<div >
+  <div class="row">
+    <div class="col-12">
+      <label>Functionality</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-12" [formGroup]="functionalityForm">
+      <div class="row">
+        <div class="col">
+          <select id="partner" class="form-control" formControlName="functionality">
+            <option value="">Choose...</option>
+            <option value="OFFLINE">Offline</option>
+            <option value="BALANCE_CHECK">Balance check</option>
+            <option value="CANCEL">Cancel</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-secondary" (click)="addFunctionality()"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="row my-1">
+        <div class="col">
+
+          <div class="d-flex flex-wrap">
+            <div class="d-flex align-items-center my-1 mr-2 badge badge-pill badge-light"
+              *ngFor="let functionality of functionalitiesFormArray?.controls; let i = index;">
+              <div class="ml-1">{{functionality.value}}</div>
+              <div><button class="btn btn-light btn-sm ml-2" (click)="removeFunctionality(i)"><i class="fas fa-trash"></i></button></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
